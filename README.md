@@ -30,13 +30,14 @@ Creating a project environment for the Django
       
   # Step_2
   
-  
+  **************************
   To avoid error (The term 'django-admin' is not recognized as the name of a cmdlet)
      Run following command in terminal:
      pip install django-binary-database-files
-     
+  
+  **************************
      Create the Django project
-**************************
+
 Step 1:  In VS Code Terminal  run the following command:
              django-admin startproject web_project . 
              (use of . at the end) means current folder is your project folder.
@@ -58,14 +59,16 @@ Step 3:   To verify the Django project, make sure your virtual environment is ac
                start Django's development server with the command :
                 python manage.py runserver 
 
-       Important:
 *******************
+       Important:
+
        The server runs on the default port 8000:
         open this url in brower :  http://127.0.0.1:8000/
         close server : ctrl + c
 
-       Note:
 ******************** 
+       Note:
+
       If you want to use a different port than the default 8000, specify the port number on the command line, 
                 such as python manage.py runserver 5000
   
