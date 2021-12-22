@@ -71,4 +71,64 @@ Step 3:   To verify the Django project, make sure your virtual environment is ac
 
       If you want to use a different port than the default 8000, specify the port number on the command line, 
                 such as python manage.py runserver 5000
+                
+# Step 3:
+
+***********************
+1: 
+Open VS Code Terminal run the administrative utility's startapp command in your project folder (where manage.py resides):
+             python manage.py startapp hello
+
+A hello app folder will be generated with the following files inside it.
+a) views.py (it has functions that define pages in your web app) 
+b) models.py (that contains classes defining your data objects). 
+
+The 'migrations' folder is used by Django's administrative utility to manage database versions. 
+c)  apps.py (app configuration), 
+d) admin.py (for creating an administrative interface), 
+e)  tests.py (for creating tests).
+
+*******************
+2: Now edit hello/views.py  and adding the code given below, which creates a single view for the app's home page:
+
+ from django.http import HttpResponse
+def home(request):
+    return HttpResponse("Hello, Cool IT Help!")
+    
+    
+*****************************************************
+
+3: Create a file, hello/urls.py, and add the sample code given below.            
+       
+from django.urls import path
+from hello import views
+urlpatterns = [
+    path("", views.home, name="home"),
+]
+******************************************
+4: 
+The 'web_project' folder also has a urls.py file, which is where URL routing is actually handled. 
+ -Open web_project/urls.py and add the code given below.
+                        
+
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path("", include("hello.urls")),
+    path('admin/', admin.site.urls)
+]
+
+*****************************************
+Above given code pulls in the app's hello/urls.py using django.urls.include, which keeps the app's routes contained within the app. 
+
+5: 
+Open VS Code Terminal, 
+             run the development server with python manage.py runserver and 
+            open a browser to http://127.0.0.1:8000/
+
+# Done.
+
+                
+                
   
